@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Senni Ranta-aho — Furniture &amp; Space Design</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Barlow:ital,wght@0,200;0,300;0,400;1,200;1,300&display=swap" rel="stylesheet">
+<style>
+*, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; -webkit-tap-highlight-color: transparent; }
+:root {
+  --black: #111110; --white: #f5f3ee; --warm: #e8e5de;
+  --mid: #8c8a84; --light: #d0cdc6; --olive: #4a5740;
+  --font: 'Barlow', system-ui, sans-serif;
+}
+body { background: var(--white); color: var(--black); font-family: var(--font); font-weight: 300; font-size: 15px; }
+
+nav {
+  position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+  display: flex; justify-content: space-between; align-items: center;
+  padding: 26px 52px;
+  background: var(--white);
+  border-bottom: 1px solid var(--light);
+}
+.nav-brand { display: flex; flex-direction: column; gap: 3px; text-decoration: none; }
+.nav-name { font-weight: 300; font-size: 12px; letter-spacing: 0.18em; text-transform: uppercase; color: var(--black); text-decoration: none; }
+.nav-sub { font-size: 9px; font-weight: 300; letter-spacing: 0.18em; text-transform: uppercase; color: var(--mid); }
+.nav-links { display: flex; gap: 40px; list-style: none; align-items: center; }
+.nav-links a { font-size: 11px; font-weight: 300; letter-spacing: 0.18em; text-transform: uppercase; text-decoration: none; color: var(--mid); transition: color 0.25s; }
+.nav-links a:hover { color: var(--black); }
+.nav-divider { width: 1px; height: 12px; background: var(--light); }
+
+.map-landing {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 10px;
+  padding: 108px 52px 40px;
+  max-width: 680px;
+  margin: 0 auto;
+}
+.map-tile {
+  position: relative; overflow: hidden;
+  display: block; text-decoration: none; cursor: pointer;
+  aspect-ratio: 1 / 1;
+}
+.map-tile img {
+  width: 100%; height: 100%;
+  object-fit: cover; display: block;
+  transition: transform 0.7s ease, filter 0.5s ease;
+  filter: grayscale(30%) brightness(0.82);
+}
+.map-tile:hover img {
+  transform: scale(1.04);
+  filter: grayscale(10%) brightness(0.95);
+}
+.map-tile-label {
+  position: absolute; inset: 0;
+  display: flex; align-items: center; justify-content: center;
+}
+.map-tile-title {
+  font-size: 13px; font-weight: 300;
+  letter-spacing: 0.26em; text-transform: uppercase;
+  color: rgba(245,243,238,0.95);
+  transition: letter-spacing 0.4s ease;
+}
+.map-tile:hover .map-tile-title { letter-spacing: 0.34em; }
+
+.map-tagline {
+  max-width: 680px;
+  margin: 0 auto;
+  padding: 0 52px 60px;
+  text-align: center;
+  font-size: 11px;
+  font-weight: 300;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--mid);
+}
+
+@media (max-width: 880px) {
+  nav { padding: 18px 24px; }
+  .map-landing { grid-template-columns: 1fr 1fr; padding: 88px 24px 40px; }
+  .map-tagline { padding: 0 24px 48px; }
+}
+
+/* ── MOBILE NAV ── */
+.nav-toggle {
+  display: none;
+  flex-direction: column; justify-content: center; gap: 5px;
+  width: 32px; height: 32px;
+  background: none; border: none; cursor: pointer; padding: 4px; flex-shrink: 0;
+}
+.nav-toggle span { display: block; width: 22px; height: 1px; background: var(--black); transition: transform 0.3s ease, opacity 0.3s ease; }
+.nav-open .nav-toggle span:nth-child(1) { transform: translateY(6px) rotate(45deg); }
+.nav-open .nav-toggle span:nth-child(2) { opacity: 0; }
+.nav-open .nav-toggle span:nth-child(3) { transform: translateY(-6px) rotate(-45deg); }
+@media (max-width: 680px) {
+  .nav-toggle { display: flex; }
+  nav { position: fixed; flex-wrap: wrap; }
+  .nav-links {
+    display: none; flex-direction: column; gap: 0; align-items: flex-start;
+    position: absolute; top: 100%; left: 0; right: 0;
+    background: var(--white); border-bottom: 1px solid var(--light);
+    padding: 6px 0; z-index: 99; list-style: none;
+  }
+  .nav-open .nav-links { display: flex; }
+  .nav-links li { width: 100%; }
+  .nav-links a { display: block; padding: 13px 24px; font-size: 12px; letter-spacing: 0.16em; }
+  .nav-divider { display: none !important; }
+}
+</style>
+</head>
+<body>
+
+<nav id="nav">
+  <div class="nav-brand">
+    <span class="nav-name">Senni Ranta-aho</span>
+    <span class="nav-sub">Furniture &amp; Space Design</span>
+  </div>
+  <button class="nav-toggle" aria-label="Menu"><span></span><span></span><span></span></button>
+
+  <ul class="nav-links">
+    <li><a href="furniture.html">Furniture</a></li>
+    <li><a href="architectural.html">Architectural Design</a></li>
+    <li class="nav-divider"></li>
+    <li><a href="about.html">About</a></li>
+    <li><a href="contact.html">Contact</a></li>
+  </ul>
+</nav>
+
+<section class="map-landing">
+  <a class="map-tile" href="furniture.html">
+    <img loading="lazy" src="Kuvat/Oodi Koivulle/kuura.jpg" alt="Furniture">
+    <div class="map-tile-label">
+      <span class="map-tile-title">Furniture</span>
+    </div>
+  </a>
+  <a class="map-tile" href="architectural.html">
+    <img loading="lazy" src="Kuvat/Private%20Residence%202/33509-4-1-15.jpg" alt="Architectural Design">
+    <div class="map-tile-label">
+      <span class="map-tile-title">Architectural Design</span>
+    </div>
+  </a>
+  <a class="map-tile" href="about.html">
+    <img loading="lazy" src="Kuvat/Other/portrait.jpg" alt="About">
+    <div class="map-tile-label">
+      <span class="map-tile-title">About</span>
+    </div>
+  </a>
+  <a class="map-tile" href="contact.html">
+    <img loading="lazy" src="Kuvat/Other/hero.jpg" alt="Contact">
+    <div class="map-tile-label">
+      <span class="map-tile-title">Contact</span>
+    </div>
+  </a>
+</section>
+
+<p class="map-tagline">Form follows feeling</p>
+
+<script>
+  const navToggle = document.querySelector('.nav-toggle');
+  if (navToggle) {
+    navToggle.addEventListener('click', function() {
+      document.getElementById('nav').classList.toggle('nav-open');
+    });
+    // close on outside click
+    document.addEventListener('click', function(e) {
+      if (!e.target.closest('#nav')) document.getElementById('nav').classList.remove('nav-open');
+    });
+  }
+</script>
+</body>
+</html>

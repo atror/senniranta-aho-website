@@ -1,0 +1,444 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Contact — Senni Ranta-aho</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Barlow:ital,wght@0,200;0,300;0,400;1,200;1,300&display=swap" rel="stylesheet">
+<style>
+*, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; -webkit-tap-highlight-color: transparent; }
+:root {
+  --black: #111110; --white: #f5f3ee; --warm: #e8e5de;
+  --mid: #8c8a84; --light: #d0cdc6; --olive: #4a5740;
+  --font: 'Barlow', system-ui, sans-serif;
+}
+html { scroll-behavior: smooth; }
+body {
+  background: var(--white);
+  color: var(--black);
+  font-family: var(--font);
+  font-weight: 300;
+  font-size: 15px;
+  line-height: 1.7;
+  overflow-x: hidden;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+/* NAV */
+nav {
+  position: fixed;
+  top: 0; left: 0; right: 0;
+  z-index: 100;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 26px 52px;
+  background: var(--white);
+  border-bottom: 1px solid var(--light);
+}
+.nav-brand { display: flex; flex-direction: column; gap: 3px; text-decoration: none; }
+.nav-name { font-weight: 300; font-size: 12px; letter-spacing: 0.18em; text-transform: uppercase; color: var(--black); }
+.nav-sub { font-size: 9px; font-weight: 300; letter-spacing: 0.18em; text-transform: uppercase; color: var(--mid); }
+.nav-links { display: flex; gap: 40px; list-style: none; align-items: center; }
+.nav-links a { font-size: 11px; font-weight: 300; letter-spacing: 0.18em; text-transform: uppercase; text-decoration: none; color: var(--mid); transition: color 0.25s; }
+.nav-links a:hover { color: var(--olive); }
+.nav-links a.active { color: var(--black); border-bottom: 1px solid var(--black); padding-bottom: 2px; }
+.nav-divider { width: 1px; height: 12px; background: var(--light); }
+
+/* PAGE */
+.page {
+  flex: 1;
+  padding-top: 88px;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+}
+
+/* LEFT — intro */
+.contact-intro {
+  padding: 80px 52px;
+  border-right: 1px solid var(--light);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.contact-eyebrow {
+  font-size: 10px;
+  font-weight: 300;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--olive);
+  margin-bottom: 28px;
+}
+
+.contact-title {
+  font-weight: 200;
+  font-style: italic;
+  font-size: clamp(40px, 4.5vw, 64px);
+  line-height: 1.06;
+  letter-spacing: 0.01em;
+  margin-bottom: 40px;
+}
+
+.contact-body {
+  font-size: 14px;
+  font-weight: 300;
+  color: var(--mid);
+  line-height: 1.95;
+  max-width: 360px;
+  margin-bottom: 56px;
+}
+
+.contact-details {
+  border-top: 1px solid var(--light);
+  padding-top: 32px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+.contact-detail-item { display: flex; flex-direction: column; gap: 4px; }
+.detail-label {
+  font-size: 9px;
+  font-weight: 300;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--mid);
+}
+.detail-value {
+  font-size: 13px;
+  font-weight: 300;
+  color: var(--black);
+}
+.detail-value a {
+  color: var(--black);
+  text-decoration: none;
+  border-bottom: 1px solid var(--light);
+  padding-bottom: 1px;
+  transition: border-color 0.2s, color 0.2s;
+}
+.detail-value a:hover { color: var(--olive); border-color: var(--olive); }
+
+/* RIGHT — form */
+.contact-form-wrap {
+  padding: 80px 52px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
+}
+
+.field {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+label {
+  font-size: 10px;
+  font-weight: 300;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--mid);
+}
+
+input, textarea, select {
+  background: transparent;
+  border: none;
+  border-bottom: 1px solid var(--light);
+  padding: 10px 0;
+  font-family: var(--font);
+  font-size: 15px;
+  font-weight: 300;
+  color: var(--black);
+  outline: none;
+  width: 100%;
+  transition: border-color 0.25s;
+  border-radius: 0;
+  -webkit-appearance: none;
+}
+input::placeholder, textarea::placeholder { color: var(--light); }
+input:focus, textarea:focus, select:focus { border-color: var(--olive); }
+
+textarea {
+  resize: none;
+  height: 120px;
+  line-height: 1.7;
+}
+
+select {
+  cursor: pointer;
+  color: var(--black);
+}
+select option { color: var(--black); background: var(--white); }
+
+.form-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 32px;
+}
+
+.submit-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding-top: 8px;
+}
+
+.form-note {
+  font-size: 11px;
+  font-weight: 300;
+  color: var(--mid);
+  letter-spacing: 0.04em;
+}
+
+button[type="submit"] {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  font-family: var(--font);
+  font-size: 10px;
+  font-weight: 300;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--olive);
+  background: transparent;
+  border: none;
+  border-bottom: 1px solid var(--olive);
+  padding-bottom: 3px;
+  cursor: pointer;
+  white-space: nowrap;
+  transition: gap 0.35s ease, opacity 0.2s;
+}
+button[type="submit"]:hover { gap: 18px; opacity: 0.7; }
+
+/* SUCCESS STATE */
+.success-msg {
+  display: none;
+  flex-direction: column;
+  gap: 16px;
+  padding: 40px 0;
+}
+.success-msg.visible { display: flex; }
+.success-title {
+  font-weight: 200;
+  font-style: italic;
+  font-size: clamp(28px, 3vw, 42px);
+  line-height: 1.1;
+}
+.success-body {
+  font-size: 14px;
+  color: var(--mid);
+  line-height: 1.9;
+}
+
+/* FOOTER */
+footer {
+  background: var(--olive);
+  padding: 32px 52px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-top: 1px solid rgba(245,243,238,0.1);
+  font-size: 10px;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: rgba(245,243,238,0.3);
+}
+.footer-name { font-weight: 300; font-size: 11px; letter-spacing: 0.18em; text-transform: uppercase; color: rgba(245,243,238,0.55); }
+.footer-contact a { color: rgba(245,243,238,0.55); text-decoration: none; letter-spacing: 0.1em; transition: color 0.2s; }
+.footer-contact a:hover { color: var(--white); }
+
+/* ENTRY */
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(14px); }
+  to   { opacity: 1; transform: none; }
+}
+.contact-eyebrow { animation: fadeUp 0.8s ease 0.1s both; }
+.contact-title   { animation: fadeUp 0.9s ease 0.25s both; }
+.contact-body    { animation: fadeUp 0.8s ease 0.38s both; }
+.contact-details { animation: fadeUp 0.8s ease 0.48s both; }
+.contact-form-wrap { animation: fadeUp 0.9s ease 0.3s both; }
+
+/* RESPONSIVE */
+@media (max-width: 680px) {
+  input, textarea, select { font-size: 16px; }
+}
+
+@media (max-width: 880px) {
+  nav { padding: 18px 24px; }
+  .page { grid-template-columns: 1fr; }
+  .contact-intro { padding: 64px 24px 48px; border-right: none; border-bottom: 1px solid var(--light); }
+  .contact-form-wrap { padding: 48px 24px 64px; }
+  .form-row { grid-template-columns: 1fr; gap: 24px; }
+  .submit-row { flex-direction: column; align-items: flex-start; gap: 20px; }
+  footer { flex-direction: column; gap: 10px; text-align: center; padding: 28px 24px; }
+}
+
+/* ── MOBILE NAV ── */
+.nav-toggle {
+  display: none;
+  flex-direction: column; justify-content: center; gap: 5px;
+  width: 32px; height: 32px;
+  background: none; border: none; cursor: pointer; padding: 4px; flex-shrink: 0;
+}
+.nav-toggle span { display: block; width: 22px; height: 1px; background: var(--black); transition: transform 0.3s ease, opacity 0.3s ease; }
+.nav-open .nav-toggle span:nth-child(1) { transform: translateY(6px) rotate(45deg); }
+.nav-open .nav-toggle span:nth-child(2) { opacity: 0; }
+.nav-open .nav-toggle span:nth-child(3) { transform: translateY(-6px) rotate(-45deg); }
+@media (max-width: 680px) {
+  .nav-toggle { display: flex; }
+  nav { position: fixed; flex-wrap: wrap; }
+  .nav-links {
+    display: none; flex-direction: column; gap: 0; align-items: flex-start;
+    position: absolute; top: 100%; left: 0; right: 0;
+    background: var(--white); border-bottom: 1px solid var(--light);
+    padding: 6px 0; z-index: 99; list-style: none;
+  }
+  .nav-open .nav-links { display: flex; }
+  .nav-links li { width: 100%; }
+  .nav-links a { display: block; padding: 13px 24px; font-size: 12px; letter-spacing: 0.16em; }
+  .nav-divider { display: none !important; }
+}
+</style>
+</head>
+<body>
+
+<nav id="nav">
+  <a href="index.html" class="nav-brand">
+    <span class="nav-name">Senni Ranta-aho</span>
+    <span class="nav-sub">Furniture &amp; Space Design</span>
+  </a>
+  <button class="nav-toggle" aria-label="Menu"><span></span><span></span><span></span></button>
+
+  <ul class="nav-links">
+    <li><a href="furniture.html">Furniture</a></li>
+    <li><a href="architectural.html">Architectural Design</a></li>
+    <li class="nav-divider"></li>
+    <li><a href="about.html">About</a></li>
+    <li><a href="contact.html" class="active">Contact</a></li>
+  </ul>
+</nav>
+
+<div class="page">
+
+  <!-- LEFT: intro -->
+  <div class="contact-intro">
+    <div>
+      <p class="contact-eyebrow">Get in touch</p>
+      <h1 class="contact-title">Let's make<br>something<br>together.</h1>
+      <p class="contact-body">Whether you have a commission in mind, a space that needs considered objects, or simply want to talk through an idea — I'd love to hear from you.</p>
+    </div>
+    <div class="contact-details">
+      <div class="contact-detail-item">
+        <span class="detail-label">Email</span>
+        <span class="detail-value"><a href="#" class="email-link" data-u="senni.ranta-aho" data-d="outlook.com">senni.ranta-aho (at) outlook.com</a></span>
+      </div>
+      <div class="contact-detail-item">
+        <span class="detail-label">Based</span>
+        <span class="detail-value">Helsinki, Finland</span>
+      </div>
+      <div class="contact-detail-item">
+        <span class="detail-label">Available for</span>
+        <span class="detail-value">Commissions &amp; collaborations</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- RIGHT: form -->
+  <div class="contact-form-wrap">
+
+    <!-- Replace YOUR_FORM_ID with your Formspree form ID -->
+    <form id="contact-form" action="https://formspree.io/f/YOUR_FORM_ID" method="POST">
+
+      <div class="form-row">
+        <div class="field">
+          <label for="name">Name</label>
+          <input type="text" id="name" name="name" placeholder="Your name" required>
+        </div>
+        <div class="field">
+          <label for="email">Email</label>
+          <input type="email" id="email" name="email" placeholder="your@email.com" required>
+        </div>
+      </div>
+
+      <div class="field">
+        <label for="message">Message</label>
+        <textarea id="message" name="message" placeholder="Tell me about your project or idea…" required></textarea>
+      </div>
+
+      <div class="submit-row">
+<button type="submit">
+          Send message
+          <svg width="14" height="14" viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="1">
+            <path d="M2 7h10M8 3l4 4-4 4"/>
+          </svg>
+        </button>
+      </div>
+
+    </form>
+
+    <div class="success-msg" id="success-msg">
+      <p class="success-title">Message sent.<br>Thank you.</p>
+      <p class="success-body">I'll be in touch within a few days.</p>
+    </div>
+
+  </div>
+</div>
+
+<footer>
+  <span class="footer-name">Senni Ranta-aho</span>
+  <span>© 2026. All rights reserved.</span>
+</footer>
+
+<script>
+  // Nav scroll border
+  const nav = document.getElementById('nav');
+  window.addEventListener('scroll', () => {
+    nav.classList.toggle('scrolled', window.scrollY > 40);
+  });
+
+  // Form submission via Formspree (AJAX)
+  const form = document.getElementById('contact-form');
+  const successMsg = document.getElementById('success-msg');
+
+  form.addEventListener('submit', async (e) => {
+    e.preventDefault();
+    const data = new FormData(form);
+    const response = await fetch(form.action, {
+      method: 'POST',
+      body: data,
+      headers: { 'Accept': 'application/json' }
+    });
+    if (response.ok) {
+      form.style.display = 'none';
+      successMsg.classList.add('visible');
+    } else {
+      alert('Something went wrong. Please email me directly at senni.ranta-aho (at) outlook.com');
+    }
+  });
+  document.querySelectorAll('.email-link').forEach(function(a){
+    a.addEventListener('click',function(e){e.preventDefault();window.location='mailto:'+a.dataset.u+'@'+a.dataset.d;});
+  });
+
+  const navToggle = document.querySelector('.nav-toggle');
+  if (navToggle) {
+    navToggle.addEventListener('click', function() {
+      document.getElementById('nav').classList.toggle('nav-open');
+    });
+    // close on outside click
+    document.addEventListener('click', function(e) {
+      if (!e.target.closest('#nav')) document.getElementById('nav').classList.remove('nav-open');
+    });
+  }
+</script>
+</body>
+</html>

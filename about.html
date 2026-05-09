@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>About — Senni Ranta-aho</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Barlow:ital,wght@0,200;0,300;0,400;1,200;1,300&display=swap" rel="stylesheet">
+<style>
+*, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; -webkit-tap-highlight-color: transparent; }
+:root {
+  --black: #111110; --white: #f5f3ee; --warm: #e8e5de;
+  --mid: #8c8a84; --light: #d0cdc6; --olive: #4a5740;
+  --font: 'Barlow', system-ui, sans-serif;
+}
+html { scroll-behavior: smooth; }
+body { background: var(--black); color: var(--white); font-family: var(--font); font-weight: 300; font-size: 15px; line-height: 1.7; overflow-x: hidden; }
+
+nav { position: fixed; top: 0; left: 0; right: 0; z-index: 100; display: flex; justify-content: space-between; align-items: center; padding: 26px 52px; background: var(--black); border-bottom: 1px solid rgba(245,243,238,0.12); }
+.nav-brand { display: flex; flex-direction: column; gap: 3px; text-decoration: none; }
+.nav-name { font-weight: 300; font-size: 12px; letter-spacing: 0.18em; text-transform: uppercase; color: var(--white); }
+.nav-sub { font-size: 9px; font-weight: 300; letter-spacing: 0.18em; text-transform: uppercase; color: rgba(245,243,238,0.45); }
+.nav-links { display: flex; gap: 40px; list-style: none; align-items: center; }
+.nav-links a { font-size: 11px; font-weight: 300; letter-spacing: 0.18em; text-transform: uppercase; text-decoration: none; color: rgba(245,243,238,0.5); transition: color 0.25s; }
+.nav-links a:hover { color: var(--white); }
+.nav-links a.active { color: var(--white); border-bottom: 1px solid rgba(245,243,238,0.6); padding-bottom: 2px; }
+.nav-divider { width: 1px; height: 12px; background: rgba(245,243,238,0.15); }
+
+main { padding: 140px 52px 80px; }
+
+.about-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 80px; align-items: start; }
+.about-image img { width: 100%; height: auto; display: block; }
+.about-content { padding-top: 6px; }
+
+.about-quote {
+  font-weight: 200; font-style: italic;
+  font-size: clamp(22px, 2.5vw, 34px);
+  line-height: 1.4; letter-spacing: 0.01em;
+  color: var(--white);
+  margin-bottom: 40px;
+  padding-bottom: 40px;
+  border-bottom: 1px solid rgba(245,243,238,0.15);
+}
+
+.about-body { margin-bottom: 52px; }
+.about-body p { color: rgba(245,243,238,0.75); font-size: 15px; line-height: 1.8; }
+.about-body p + p { margin-top: 18px; }
+
+.about-facts { display: grid; grid-template-columns: 1fr 1fr; gap: 28px 40px; }
+.fact-label { font-size: 9px; font-weight: 300; letter-spacing: 0.2em; text-transform: uppercase; color: rgba(245,243,238,0.4); margin-bottom: 4px; }
+.fact-value { font-size: 13px; font-weight: 300; color: rgba(245,243,238,0.85); }
+.fact-value a { color: rgba(245,243,238,0.85); text-decoration: none; border-bottom: 1px solid rgba(245,243,238,0.25); padding-bottom: 1px; transition: color 0.2s, border-color 0.2s; }
+.fact-value a:hover { color: var(--white); border-color: rgba(245,243,238,0.6); }
+
+footer { padding: 32px 52px; display: flex; justify-content: space-between; align-items: center; border-top: 1px solid rgba(245,243,238,0.12); font-size: 10px; letter-spacing: 0.14em; text-transform: uppercase; color: rgba(245,243,238,0.4); }
+.footer-name { font-size: 11px; letter-spacing: 0.18em; color: var(--white); }
+.footer-contact a { color: rgba(245,243,238,0.4); text-decoration: none; transition: color 0.2s; }
+.footer-contact a:hover { color: var(--white); }
+
+@media (max-width: 880px) {
+  nav { padding: 18px 24px; }
+  main { padding: 110px 24px 60px; }
+  .about-grid { grid-template-columns: 1fr; gap: 44px; }
+  footer { flex-direction: column; gap: 10px; text-align: center; padding: 28px 24px; }
+}
+
+/* ── MOBILE NAV ── */
+.nav-toggle {
+  display: none;
+  flex-direction: column; justify-content: center; gap: 5px;
+  width: 32px; height: 32px;
+  background: none; border: none; cursor: pointer; padding: 4px; flex-shrink: 0;
+}
+.nav-toggle span { display: block; width: 22px; height: 1px; background: var(--white); transition: transform 0.3s ease, opacity 0.3s ease; }
+.nav-open .nav-toggle span:nth-child(1) { transform: translateY(6px) rotate(45deg); }
+.nav-open .nav-toggle span:nth-child(2) { opacity: 0; }
+.nav-open .nav-toggle span:nth-child(3) { transform: translateY(-6px) rotate(-45deg); }
+@media (max-width: 680px) {
+  .nav-toggle { display: flex; }
+  nav { position: fixed; flex-wrap: wrap; }
+  .nav-links {
+    display: none; flex-direction: column; gap: 0; align-items: flex-start;
+    position: absolute; top: 100%; left: 0; right: 0;
+    background: var(--black); border-bottom: 1px solid rgba(245,243,238,0.12);
+    padding: 6px 0; z-index: 99; list-style: none;
+  }
+  .nav-open .nav-links { display: flex; }
+  .nav-links li { width: 100%; }
+  .nav-links a { display: block; padding: 13px 24px; font-size: 12px; letter-spacing: 0.16em; }
+  .nav-divider { display: none !important; }
+}
+</style>
+</head>
+<body>
+<nav id="nav">
+  <a href="index.html" class="nav-brand">
+    <span class="nav-name">Senni Ranta-aho</span>
+    <span class="nav-sub">Furniture &amp; Space Design</span>
+  </a>
+  <button class="nav-toggle" aria-label="Menu"><span></span><span></span><span></span></button>
+
+  <ul class="nav-links">
+    <li><a href="furniture.html">Furniture</a></li>
+    <li><a href="architectural.html">Architectural Design</a></li>
+    <li class="nav-divider"></li>
+    <li><a href="about.html" class="active">About</a></li>
+    <li><a href="contact.html">Contact</a></li>
+  </ul>
+</nav>
+
+<main>
+  <div class="about-grid">
+    <div class="about-image">
+      <img loading="lazy" src="Kuvat/Other/portrait.jpg" alt="Senni Ranta-aho">
+    </div>
+    <div class="about-content">
+      <p class="about-quote">"I design objects that earn their place in a room — and in a life."</p>
+      <div class="about-body">
+        <p>Senni Ranta-aho is a Helsinki-based furniture designer and spatial artist whose work explores the relationship between everyday objects and the people who live with them. Drawing on a background in industrial engineering, she creates pieces that are at once functional and quietly poetic.</p>
+        <p>Her practice spans limited-edition furniture, bespoke commissions, and interior interventions for private clients, exhibitions, and public spaces. Each work begins with function and material, shaped by the people who will use it, and ends somewhere between craft and sculpture.</p>
+        <p>Senni studied at Aalto University School of Arts, Design and Architecture.</p>
+      </div>
+      <div class="about-facts">
+        <div>
+          <p class="fact-label">Based</p>
+          <p class="fact-value">Helsinki, Finland</p>
+        </div>
+        <div>
+          <p class="fact-label">Education</p>
+          <p class="fact-value">Aalto University School of Arts, Design and Architecture</p>
+        </div>
+        <div>
+          <p class="fact-label">Available for</p>
+          <p class="fact-value">Commissions &amp; collaborations</p>
+        </div>
+        <div>
+          <p class="fact-label">Contact</p>
+          <p class="fact-value"><a href="#" class="email-link" data-u="senni.ranta-aho" data-d="outlook.com">senni.ranta-aho (at) outlook.com</a></p>
+        </div>
+      </div>
+    </div>
+  </div>
+</main>
+
+<footer>
+  <span class="footer-name">Senni Ranta-aho</span>
+  <span>© 2026. All rights reserved.</span>
+</footer>
+
+<script>
+  document.querySelectorAll('.email-link').forEach(function(a){
+    a.addEventListener('click',function(e){e.preventDefault();window.location='mailto:'+a.dataset.u+'@'+a.dataset.d;});
+  });
+
+  const navToggle = document.querySelector('.nav-toggle');
+  if (navToggle) {
+    navToggle.addEventListener('click', function() {
+      document.getElementById('nav').classList.toggle('nav-open');
+    });
+    // close on outside click
+    document.addEventListener('click', function(e) {
+      if (!e.target.closest('#nav')) document.getElementById('nav').classList.remove('nav-open');
+    });
+  }
+</script>
+</body>
+</html>
