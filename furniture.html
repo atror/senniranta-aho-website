@@ -34,16 +34,16 @@ main { padding: 140px 52px 80px; max-width: 1400px; margin-left: auto; margin-ri
   grid-template-columns: repeat(12, 1fr);
   gap: 14px;
 }
-.furniture-grid .work-item:nth-child(1) { grid-column: 1 / 13; }
-.furniture-grid .work-item:nth-child(2) { grid-column: 1 / 6; }
-.furniture-grid .work-item:nth-child(3) { grid-column: 6 / 13; }
-.furniture-grid .work-item:nth-child(4) { grid-column: 1 / 5; }
-.furniture-grid .work-item:nth-child(5) { grid-column: 5 / 9; }
-.furniture-grid .work-item:nth-child(6) { grid-column: 9 / 13; }
-.furniture-grid .work-item:nth-child(7) { grid-column: 1 / 6; }
-.furniture-grid .work-item:nth-child(8) { grid-column: 6 / 13; }
-.furniture-grid .work-item:nth-child(9) { grid-column: 1 / 5; }
-.furniture-grid .work-item:nth-child(10) { grid-column: 5 / 13; }
+.furniture-grid .work-item:nth-child(1) { grid-column: 1 / 8; }
+.furniture-grid .work-item:nth-child(2) { grid-column: 8 / 13; }
+.furniture-grid .work-item:nth-child(3) { grid-column: 1 / 5; }
+.furniture-grid .work-item:nth-child(4) { grid-column: 5 / 9; }
+.furniture-grid .work-item:nth-child(5) { grid-column: 9 / 13; }
+.furniture-grid .work-item:nth-child(6) { grid-column: 1 / 5; }
+.furniture-grid .work-item:nth-child(7) { grid-column: 5 / 9; }
+.furniture-grid .work-item:nth-child(8) { grid-column: 9 / 13; }
+.furniture-grid .work-item:nth-child(9) { grid-column: 1 / 6; }
+.furniture-grid .work-item:nth-child(10) { grid-column: 6 / 13; }
 
 .work-item { opacity: 0; transform: translateY(20px); transition: opacity 0.8s ease, transform 0.8s ease; }
 .work-item.visible { opacity: 1; transform: none; }
@@ -52,8 +52,8 @@ main { padding: 140px 52px 80px; max-width: 1400px; margin-left: auto; margin-ri
 .work-item:nth-child(4) { transition-delay: 0.22s; }
 
 .work-link { display: block; text-decoration: none; }
-.work-image { overflow: hidden; aspect-ratio: 4/3; }
-.work-image img { width: 100%; height: 100%; object-fit: cover; display: block; transition: transform 0.7s ease; }
+.work-image { overflow: hidden; }
+.work-image img { width: 100%; height: auto; display: block; transition: transform 0.7s ease; }
 .work-link:hover .work-image img { transform: scale(1.03); }
 
 .work-meta { padding: 13px 0 0; display: flex; justify-content: space-between; align-items: baseline; }
