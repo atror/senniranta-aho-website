@@ -356,8 +356,8 @@ footer {
   <!-- RIGHT: form -->
   <div class="contact-form-wrap">
 
-    <!-- Replace YOUR_FORM_ID with your Formspree form ID -->
-    <form id="contact-form" action="https://formspree.io/f/YOUR_FORM_ID" method="POST">
+    <form id="contact-form" name="contact" method="POST" data-netlify="true">
+      <input type="hidden" name="form-name" value="contact">
 
       <div class="form-row">
         <div class="field">
@@ -413,10 +413,10 @@ footer {
   form.addEventListener('submit', async (e) => {
     e.preventDefault();
     const data = new FormData(form);
-    const response = await fetch(form.action, {
+    const response = await fetch('/', {
       method: 'POST',
-      body: data,
-      headers: { 'Accept': 'application/json' }
+      headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+      body: new URLSearchParams(data).toString()
     });
     if (response.ok) {
       form.style.display = 'none';
