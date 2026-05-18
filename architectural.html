@@ -37,11 +37,17 @@ main { padding: 140px 52px 80px; }
 .arch-grid .work-item:nth-child(1) { grid-column: 1 / 13; }
 .arch-grid .work-item:nth-child(2) { grid-column: 1 / 7; }
 .arch-grid .work-item:nth-child(3) { grid-column: 7 / 13; }
+.arch-grid .work-item:nth-child(4) { grid-column: 1 / 13; }
+.arch-grid .work-item:nth-child(5) { grid-column: 1 / 7; }
+.arch-grid .work-item:nth-child(6) { grid-column: 7 / 13; }
+.arch-grid .work-item:nth-child(7) { grid-column: 1 / 13; }
 
 .work-item { opacity: 0; transform: translateY(20px); transition: opacity 0.8s ease, transform 0.8s ease; }
 .work-item.visible { opacity: 1; transform: none; }
 .work-item:nth-child(2) { transition-delay: 0.1s; }
 .work-item:nth-child(3) { transition-delay: 0.16s; }
+.work-item:nth-child(5) { transition-delay: 0.1s; }
+.work-item:nth-child(6) { transition-delay: 0.16s; }
 
 .work-link { display: block; text-decoration: none; }
 .work-image { overflow: hidden; }
@@ -143,12 +149,53 @@ footer { padding: 32px 52px; display: flex; justify-content: space-between; alig
       </div>
     </article>
 
+    <article class="work-item">
+      <a href="paja.html" class="work-link">
+        <div class="work-image"><img loading="lazy" src="Kuvat/Paja/paja-000.jpg" alt="Paja"></div>
+      </a>
+      <div class="work-meta">
+        <div><p class="work-title">Paja</p><p class="work-material">Workshop space</p></div>
+        <span class="work-year">2025</span>
+      </div>
+    </article>
+
+    <article class="work-item">
+      <a href="retriitti.html" class="work-link">
+        <div class="work-image"><img loading="lazy" src="Kuvat/Retriitti/retriitti-001.jpg" alt="Retriitti"></div>
+      </a>
+      <div class="work-meta">
+        <div><p class="work-title">Retriitti</p><p class="work-material">Coastal retreat</p></div>
+        <span class="work-year">2023</span>
+      </div>
+    </article>
+
+    <article class="work-item">
+      <a href="beneath-the-surface.html" class="work-link">
+        <div class="work-image"><img loading="lazy" src="Kuvat/Beneath The Surface/bts-000.jpg" alt="Beneath the Surface"></div>
+      </a>
+      <div class="work-meta">
+        <div><p class="work-title">Beneath the Surface</p><p class="work-material">Exhibition design</p></div>
+        <span class="work-year">2024</span>
+      </div>
+    </article>
+
+    <article class="work-item">
+      <a href="dots.html" class="work-link">
+        <div class="work-image"><img loading="lazy" src="Kuvat/Dots/dots-069.jpg" alt="Dots"></div>
+      </a>
+      <div class="work-meta">
+        <div><p class="work-title">Dots</p><p class="work-material">Modular pavilion</p></div>
+        <span class="work-year">2024</span>
+      </div>
+    </article>
+
   </div>
 </main>
 
 <footer>
   <span class="footer-name">Senni Ranta-aho</span>
   <span>© 2026. All rights reserved.</span>
+  <a href="https://fi.linkedin.com/in/senni-ranta-aho-60b15151" target="_blank" rel="noopener" class="footer-contact">LinkedIn</a>
 </footer>
 
 <script>
