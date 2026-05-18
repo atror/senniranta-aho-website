@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Nappy — Senni Ranta-aho</title>
+<title>Beneath the Surface — Senni Ranta-aho [REVIEW]</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Barlow:ital,wght@0,200;0,300;0,400;1,200;1,300&display=swap" rel="stylesheet">
@@ -25,20 +25,40 @@ nav { position: fixed; top: 0; left: 0; right: 0; z-index: 100; display: flex; j
 .nav-links a:hover { color: var(--olive); }
 .nav-links a.active { color: var(--black); border-bottom: 1px solid var(--black); padding-bottom: 2px; }
 .nav-divider { width: 1px; height: 12px; background: var(--light); }
-.detail-hero { display: none; }
+.detail-hero { padding-top: 88px; }
 .detail-hero img { width: 100%; height: auto; display: block; }
-.detail-body { padding: 140px 52px 80px; }
+.detail-body { padding: 52px 52px 80px; }
 .back-link { display: inline-flex; align-items: center; gap: 8px; font-size: 10px; letter-spacing: 0.18em; text-transform: uppercase; text-decoration: none; color: var(--mid); margin-bottom: 48px; transition: color 0.2s; }
 .back-link:hover { color: var(--olive); }
 .detail-title { font-weight: 200; font-style: italic; font-size: clamp(40px, 5vw, 68px); line-height: 1.06; margin-bottom: 16px; }
-.detail-meta { display: flex; gap: 40px; font-size: 11px; letter-spacing: 0.14em; text-transform: uppercase; color: var(--mid); padding-bottom: 36px; border-bottom: 1px solid var(--light); margin-bottom: 52px; }
-.detail-gallery { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 14px; }
-.detail-gallery img { width: 100%; height: auto; display: block; }
+.detail-meta { display: flex; gap: 40px; font-size: 11px; letter-spacing: 0.14em; text-transform: uppercase; color: var(--mid); padding-bottom: 36px; border-bottom: 1px solid var(--light); margin-bottom: 52px; flex-wrap: wrap; }
+.detail-gallery {
+  columns: 2;
+  column-gap: 14px;
+}
+.detail-gallery img {
+  width: 100%;
+  display: block;
+  margin-bottom: 14px;
+  break-inside: avoid;
+}
 footer { padding: 32px 52px; display: flex; justify-content: space-between; align-items: center; border-top: 1px solid var(--light); font-size: 10px; letter-spacing: 0.14em; text-transform: uppercase; color: var(--mid); }
 .footer-name { font-size: 11px; letter-spacing: 0.18em; color: var(--black); }
 .footer-contact a { color: var(--mid); text-decoration: none; transition: color 0.2s; }
 .footer-contact a:hover { color: var(--olive); }
-@media (max-width: 880px) { nav { padding: 18px 24px; } .detail-body { padding: 36px 24px 60px; } .detail-gallery { grid-template-columns: 1fr; } footer { flex-direction: column; gap: 10px; text-align: center; padding: 28px 24px; } }
+
+/* Review banner */
+.review-banner {
+  position: fixed; bottom: 0; left: 0; right: 0; z-index: 200;
+  background: var(--black); color: var(--white);
+  padding: 10px 52px;
+  display: flex; align-items: center; justify-content: space-between;
+  font-size: 10px; letter-spacing: 0.16em; text-transform: uppercase;
+}
+.review-banner strong { font-weight: 400; }
+.review-banner span { color: var(--mid); }
+
+@media (max-width: 880px) { nav { padding: 18px 24px; } .detail-body { padding: 36px 24px 60px; } .detail-gallery { columns: 1; } footer { flex-direction: column; gap: 10px; text-align: center; padding: 28px 24px; } .review-banner { padding: 10px 24px; } }
 
 /* ── MOBILE NAV ── */
 .nav-toggle {
@@ -76,32 +96,53 @@ footer { padding: 32px 52px; display: flex; justify-content: space-between; alig
   <button class="nav-toggle" aria-label="Menu"><span></span><span></span><span></span></button>
 
   <ul class="nav-links">
-    <li><a href="furniture.html" class="active">Furniture</a></li>
-    <li><a href="architectural.html">Architectural Design</a></li>
+    <li><a href="furniture.html">Furniture</a></li>
+    <li><a href="architectural.html" class="active">Architectural Design</a></li>
     <li class="nav-divider"></li>
     <li><a href="about.html">About</a></li>
     <li><a href="contact.html">Contact</a></li>
   </ul>
 </nav>
+
+<div class="detail-hero">
+  <img src="Kuvat/Beneath The Surface/bts-000.jpg" alt="Beneath the Surface — exhibition design">
+</div>
+
 <div class="detail-body">
-  <h1 class="detail-title">Nappy</h1>
+  <a href="architectural.html" class="back-link">
+    <svg width="14" height="14" viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="1"><path d="M12 7H2M6 3L2 7l4 4"/></svg>
+    Back to work
+  </a>
+
+  <h1 class="detail-title">Beneath the Surface</h1>
   <div class="detail-meta">
-    <span>Sheet Metal</span>
-    <span>2023</span>
-    <span>Furniture</span>
+    <span>Exhibition design</span>
+    <span>2024</span>
+    <span>Architectural Design</span>
+    <span>Group work</span>
   </div>
+
   <div class="detail-gallery">
-    <img loading="lazy" src="Kuvat/Nappy/sidetable.jpg" alt="Nappy">
-    <img loading="lazy" src="Kuvat/Nappy/origami-2.jpg" alt="Nappy">
-    <img loading="lazy" src="Kuvat/Nappy/origami-3.jpg" alt="Nappy">
-    <img loading="lazy" src="Kuvat/Nappy/nappy.png" alt="Nappy">
+    <img loading="lazy" src="Kuvat/Beneath The Surface/bts-002.jpg" alt="Beneath the Surface interior render">
+    <img loading="lazy" src="Kuvat/Beneath The Surface/bts-004.jpg" alt="Beneath the Surface interior render">
+    <img loading="lazy" src="Kuvat/Beneath The Surface/bts-006.jpg" alt="Beneath the Surface interior">
+    <img loading="lazy" src="Kuvat/Beneath The Surface/bts-010.jpg" alt="Beneath the Surface space">
+    <img loading="lazy" src="Kuvat/Beneath The Surface/bts-021.jpg" alt="Beneath the Surface render">
+    <img loading="lazy" src="Kuvat/Beneath The Surface/bts-022.jpg" alt="Beneath the Surface render">
   </div>
 </div>
+
 <footer>
   <span class="footer-name">Senni Ranta-aho</span>
   <span>© 2026. All rights reserved.</span>
-  <a href="https://www.linkedin.com/in/senniranta-aho" target="_blank" rel="noopener" class="footer-contact">LinkedIn</a>
+  <a href="https://fi.linkedin.com/in/senni-ranta-aho-60b15151" target="_blank" rel="noopener" class="footer-contact">LinkedIn</a>
 </footer>
+
+<div class="review-banner">
+  <strong>Review version</strong>
+  <span>Not linked from navigation — rename to beneath-the-surface.html when ready</span>
+</div>
+
 <script>
   const nav = document.getElementById('nav');
   window.addEventListener('scroll', () => { nav.classList.toggle('scrolled', window.scrollY > 40); });
@@ -114,7 +155,6 @@ footer { padding: 32px 52px; display: flex; justify-content: space-between; alig
     navToggle.addEventListener('click', function() {
       document.getElementById('nav').classList.toggle('nav-open');
     });
-    // close on outside click
     document.addEventListener('click', function(e) {
       if (!e.target.closest('#nav')) document.getElementById('nav').classList.remove('nav-open');
     });
