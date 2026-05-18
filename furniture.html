@@ -27,22 +27,21 @@ nav { position: fixed; top: 0; left: 0; right: 0; z-index: 100; display: flex; j
 .nav-links a.active { color: var(--black); border-bottom: 1px solid var(--black); padding-bottom: 2px; }
 .nav-divider { width: 1px; height: 12px; background: var(--light); }
 
-main { padding: 140px 52px 80px; max-width: 1100px; margin-left: auto; margin-right: auto; }
+main { padding: 140px 52px 80px; }
 
 .portfolio-grid {
   display: grid;
   grid-template-columns: repeat(12, 1fr);
   gap: 14px;
 }
-.furniture-grid .work-item:nth-child(1) { grid-column: 1 / 9; grid-row: 1; }
-.furniture-grid .work-item:nth-child(2) { grid-column: 1 / 9; grid-row: 2; }
-.furniture-grid .work-item:nth-child(3) { grid-column: 9 / 13; grid-row: 1 / 3; }
+.furniture-grid .work-item:nth-child(1) { grid-column: 1 / 13; }
+.furniture-grid .work-item:nth-child(2) { grid-column: 1 / 6; }
+.furniture-grid .work-item:nth-child(3) { grid-column: 6 / 13; }
 .furniture-grid .work-item:nth-child(4) { grid-column: 1 / 5; }
 .furniture-grid .work-item:nth-child(5) { grid-column: 5 / 9; }
 .furniture-grid .work-item:nth-child(6) { grid-column: 9 / 13; }
-.furniture-grid .work-item:nth-child(7) { grid-column: 1 / 5; }
-.furniture-grid .work-item:nth-child(8) { grid-column: 5 / 9; }
-.furniture-grid .work-item:nth-child(9) { grid-column: 9 / 13; }
+.furniture-grid .work-item:nth-child(7) { grid-column: 1 / 6; }
+.furniture-grid .work-item:nth-child(8) { grid-column: 6 / 13; }
 
 .work-item { opacity: 0; transform: translateY(20px); transition: opacity 0.8s ease, transform 0.8s ease; }
 .work-item.visible { opacity: 1; transform: none; }
@@ -99,6 +98,21 @@ footer { padding: 32px 52px; display: flex; justify-content: space-between; alig
   .nav-divider { display: none !important; }
 }
 </style>
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-YXZS3K07K4"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-YXZS3K07K4');
+</script>
+<script type="text/javascript">
+  (function(c,l,a,r,i,t,y){
+    c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
+    t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
+    y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
+  })(window, document, "clarity", "script", "wt2zaqo8d2");
+</script>
 </head>
 <body>
 <nav id="nav">
@@ -131,22 +145,22 @@ footer { padding: 32px 52px; display: flex; justify-content: space-between; alig
     </article>
 
     <article class="work-item">
-      <a href="purilas-bench.html" class="work-link">
-        <div class="work-image"><img loading="lazy" src="Kuvat/Purilas Bench/lumi.jpg" alt="Purilas Bench"></div>
-      </a>
-      <div class="work-meta">
-        <div><p class="work-title">Purilas Bench</p><p class="work-material">Spruce Veneer Core &amp; Veneer</p></div>
-        <span class="work-year">2025</span>
-      </div>
-    </article>
-
-    <article class="work-item">
       <a href="fairy-helmet.html" class="work-link">
         <div class="work-image"><img loading="lazy" src="Kuvat/Keijun Hattu/luminaire.jpg" alt="Fairy Helmet"></div>
       </a>
       <div class="work-meta">
         <div><p class="work-title">Fairy Helmet</p><p class="work-material">Linden &amp; Copper — Luminaire</p></div>
         <span class="work-year">2026</span>
+      </div>
+    </article>
+
+    <article class="work-item">
+      <a href="purilas-bench.html" class="work-link">
+        <div class="work-image"><img loading="lazy" src="Kuvat/Purilas Bench/lumi.jpg" alt="Purilas Bench"></div>
+      </a>
+      <div class="work-meta">
+        <div><p class="work-title">Purilas Bench</p><p class="work-material">Spruce Veneer Core &amp; Veneer</p></div>
+        <span class="work-year">2025</span>
       </div>
     </article>
 
@@ -200,23 +214,13 @@ footer { padding: 32px 52px; display: flex; justify-content: space-between; alig
       </div>
     </article>
 
-    <article class="work-item">
-      <a href="armi-jakkara.html" class="work-link">
-        <div class="work-image"><img loading="lazy" src="Kuvat/Armi Jakkara/armi-jakkara-2.jpg" alt="Armi Jakkara"></div>
-      </a>
-      <div class="work-meta">
-        <div><p class="work-title">Armi Jakkara</p><p class="work-material">Birch</p></div>
-        <span class="work-year">2026</span>
-      </div>
-    </article>
-
   </div>
 </main>
 
 <footer>
   <span class="footer-name">Senni Ranta-aho</span>
   <span>© 2026. All rights reserved.</span>
-  <a href="https://www.linkedin.com/in/senniranta-aho" target="_blank" rel="noopener" class="footer-contact">LinkedIn</a>
+  <a href="https://fi.linkedin.com/in/senni-ranta-aho-60b15151" target="_blank" rel="noopener" class="footer-contact">LinkedIn</a>
 </footer>
 
 <script>
